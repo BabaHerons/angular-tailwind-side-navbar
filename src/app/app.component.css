@@ -1,0 +1,15 @@
+.menu {
+    @apply
+    p-[10px]
+    border-b border-yellow-400 
+}
+
+.active-sub-menu {
+    @apply
+    text-blue-600 font-semibold
+}
+
+.dropdown-menu {
+    @apply
+    pl-[25px] [&>*]:p-2
+}
