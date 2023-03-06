@@ -6,6 +6,75 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  
+  side_menu = [
+    {
+      menu: 'Home',
+      items: [
+        {
+          item:'Part 1',
+          link:'/part-1'
+        },
+        {
+          item:'Part 2',
+          link:'/part-2'
+        },
+        {
+          item:'Part 3',
+          link:'/part-3'
+        },
+      ]
+    },
+    {
+      menu: 'About',
+      // items: []
+    },
+    {
+      menu: 'Department',
+      items: [
+        {
+          item:'Physics',
+          link:'/physics'
+        },
+        {
+          item:'Chemistry',
+          link:'/chemistry'
+        },
+        {
+          item:'Mathematics',
+          link:'/maths'
+        },
+      ]
+    },
+    {
+      menu: 'Coding',
+      items: [
+        {
+          item:'Python',
+          link:'/python'
+        },
+        {
+          item:'JavaScript',
+          link:'/js'
+        },
+        {
+          item:'Java',
+          link:'/java'
+        },
+      ]
+    },
+  ]
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   toggle = (event: MouseEvent) => {
     let parent = (event.target as Element);
     let dropdown_id = 'dropdown-' + parent.id;
@@ -14,8 +83,8 @@ export class AppComponent {
     for (let i = 0; i < menu.length; i++){
       let k = menu[i].firstElementChild
       if (k != null && !(k.id ===parent.id)){
-        k.classList.remove('font-semibold')
-        k.classList.remove('bg-blue-200')
+        k.classList.remove('active')
+        
       }
     }
     
@@ -30,7 +99,6 @@ export class AppComponent {
 
     let dropdown_ele = document.getElementById(dropdown_id);
     dropdown_ele?.classList.toggle('hidden');
-    parent.classList.toggle('font-semibold');
-    parent.classList.toggle('bg-blue-200')
+    parent.classList.toggle('active');
   };
 }

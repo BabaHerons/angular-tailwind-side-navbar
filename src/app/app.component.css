@@ -1,15 +1,22 @@
 .menu {
-    @apply
-    p-[10px]
-    border-b border-yellow-400 
+  @apply m-[1px]
+    /* border-b border-yellow-400  */;
 }
 
-.active-sub-menu {
-    @apply
-    text-blue-600 font-semibold
+.menu-item {
+  @apply 
+  flex justify-between cursor-pointer p-2 hover:font-semibold
+  bg-blue-400 hover:bg-blue-500
 }
 
 .dropdown-menu {
-    @apply
-    pl-[25px] [&>*]:p-2
+  @apply 
+  pl-[25px] [&>*]:p-2
+  border border-black
+}
+
+.active {
+  @apply 
+  font-semibold
+  bg-blue-400 hover:bg-blue-500;
 }

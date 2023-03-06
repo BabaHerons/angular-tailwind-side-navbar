@@ -1,31 +1,20 @@
 <div class="w-[10%]">
   <ul class="flex flex-col">
-    <li class="menu">
-      <p id="home" class="flex justify-between cursor-pointer p-2" (click)="toggle($event)">Home 
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+    <li *ngFor="let menu of side_menu" class="menu">
+      <p id="{{menu.menu}}" class="menu-item" (click)="toggle($event)">{{menu.menu}} 
+        <svg *ngIf="menu.items" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
         </svg>
       </p>
-      <ul id="dropdown-home" class="dropdown-menu hidden">
-        <li><a href="">Part 1</a></li>
-        <li>Part 2</li>
-        <li>Part 3</li>
+      <ul *ngIf="menu.items" id="{{'dropdown-' + menu.menu}}" class="dropdown-menu hidden">
+        <li *ngFor="let item of menu.items">
+          <a class="flex font-semibold" routerLink="{{item.link}}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dot" viewBox="0 0 16 16">
+              <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+            </svg>
+            {{item.item}}</a>
+        </li>
       </ul>
     </li>
-    <li class="menu">About</li>
-    <li class="menu">
-      <p id="dept" class="flex justify-between cursor-pointer p-2" (click)="toggle($event)">Department 
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-        </svg>
-      </p>
-      <ul id="dropdown-dept" class="dropdown-menu hidden">
-        <li><a href="">Physics</a></li>
-        <li>Chemistry</li>
-        <li>Mathematics</li>
-      </ul>
-    </li>
-    <li class="menu">Maths</li>
-    <li class="menu">Coding</li>
   </ul>
 </div>
