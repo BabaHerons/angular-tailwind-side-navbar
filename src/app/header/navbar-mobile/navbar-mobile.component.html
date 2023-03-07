@@ -1,0 +1,21 @@
+<nav id="mobile-nav-menu" class="hidden items-start flex-col m-4">
+    <ul class="flex mr-7 flex-col lg:flex-row">
+        <li *ngFor="let menu of mobile_menu">
+            <a id="{{menu.menu}}" class="flex items-center p-2" href="#" (click)="toggle_mob($event)">
+                {{menu.menu}} &nbsp;
+                <svg *ngIf="menu.items" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                  </svg>  
+            </a>
+            <ul *ngIf="menu.items" id="{{'mobile-dropdown-' + menu.menu}}" class="mobile-dropdown hidden">
+                <li *ngFor="let item of menu.items">
+                    <a routerLink="{{item.link}}">{{ item.item }}</a>
+                </li>
+            </ul>
+        </li>    
+    </ul>
+    <form class="flex w-[60%]" action="">
+        <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-200 w-full p-2 mr-1" placeholder="Search here">
+        <button type="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Search</button>
+    </form>
+</nav>
